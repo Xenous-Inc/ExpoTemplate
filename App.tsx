@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Colors } from 'styles/colors';
+import { Colors } from '@styles/colors';
 
 export default function App() {
     return (

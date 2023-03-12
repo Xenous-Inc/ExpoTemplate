@@ -20,8 +20,8 @@ module.exports = {
         'react-hooks',
         'react-native',
         'unused-imports',
+        'module-resolver',
         '@typescript-eslint',
-        'no-relative-import-paths',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -38,14 +38,12 @@ module.exports = {
         commonjs: true,
     },
     settings: {
+        'import/ignore': ['react-native'],
         'import/parsers': {
             '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
         'import/resolver': {
-            typescript: {},
-            node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx'],
-            },
+            'babel-module': {},
         },
     },
     ignorePatterns: ['**/.gitkeep', 'babel.config.js'],
@@ -53,11 +51,15 @@ module.exports = {
         // local syntax principles
         'no-multi-spaces': 'error',
         'quotes': ['error', 'single'],
-        'import/no-deprecated': 'warn',
         'comma-style': ['error', 'last'],
         'linebreak-style': ['error', 'unix'],
         'func-call-spacing': ['error', 'never'],
-        'no-relative-import-paths/no-relative-import-paths': ['warn', { rootDir: 'src', prefix: '' }],
+        'module-resolver/use-alias': [
+            'error',
+            {
+                extensions: ['.ts', '.tsx'],
+            },
+        ],
         '@typescript-eslint/naming-convention': [
             'error',
             {
@@ -104,7 +106,7 @@ module.exports = {
         // code cleanup rules
         'no-empty': 'warn',
         'react-native/no-unused-styles': 'warn',
-        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-imports': 'error',
         'import/no-unused-modules': [1, { missingExports: true }],
 
         // hindering and useless syntax
