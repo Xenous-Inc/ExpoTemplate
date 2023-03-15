@@ -43,6 +43,7 @@ module.exports = {
             '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
         'import/resolver': {
+            'typescript': {},
             'babel-module': {},
         },
     },
