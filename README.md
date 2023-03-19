@@ -1,3 +1,3 @@
-#Logging
-###Example
+# Logging
+### Example
 ```logs.info('PROCESS STARTED');```
