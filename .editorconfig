@@ -10,5 +10,5 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{tsconfig.json, package.json}]
+[{tsconfig.json, package.json, app.json}]
 indent_size = 2
