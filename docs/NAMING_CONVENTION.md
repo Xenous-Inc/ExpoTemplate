@@ -1,4 +1,3 @@
-# Naming Convention
 ## Contents
 - [Code](#code)
     - [Files and Folders](#files-and-folders)
@@ -11,40 +10,47 @@
 
   CSS-in-JS
     - [Methodology](#methodology)
+    - [Modifiers](#modifiers)
 - [GIT](#git)
     - [Commits](#commits)
+      - [Message structure](#message-structure)
+        - [Type](#type)
+        - [Footer](#footer)
+        - [Example](#example)
       - [Main Rules](#main-rules)
 
-## Code
-#### Files and Folders
+# Code
+### Files and Folders
 
 Use `camelCase` for names of **files** and **folders**. However, for **React components** it is ought to use `PascalCase`.
-``` properties
+```
 - components
     - IconButton.tsx
 - styles
     - colors.ts
     - sizes.ts
 ```
-#### Objects, Variables and Functions
+### Objects, Variables and Functions
 Use `camelCase` when naming **objects**, **variables** and **functions** <ins>except functional components</ins>.
+Also use the imperative mood when naming functions.
 ``` tsx
-let thisIsMyCounter = 0;
-const thisIsMyObject = {};
-const thisIsMyFunction = () => {};
+let someVariable = 0;
+const someObject = {};
+const doSomething = () => {};
 
+// but:
 const SomeComponent: React.FC = () => {
     return <></>;
 }
 ```
-#### Components Naming
+### Components Naming
 Use the **filename** as the **component name**. For example, `BookIcon.tsx` should
 have a reference name of  `BookIcon`:
 ``` ts
 import BookIcon from '@atoms/bookIcon/BookIcon';
 import BookIcon from '@atoms/BookIcon';
 ```
-#### Enums
+### Enums
 Use `PascalCase` when naming **enums** and it’s **keys**.
 ``` ts
 enum Mode {
@@ -52,7 +58,7 @@ enum Mode {
     Blank = 'blank',
 }
 ```
-#### Classes, Types and Interfaces
+### Classes, Types and Interfaces
 Use `PascalCase` when naming **types**, **interfaces** and **classes**.
 ``` ts
 class User {
@@ -68,7 +74,7 @@ interface IButton {
 }
 export type TMode = typeof Mode;
 ```
-#### Keys
+### Keys
 Use `camelCase` when naming objects', classes', types' and interfaces’ **keys** <ins>except ones for constants</ins>.
 ``` ts
 interface IButton {
@@ -77,7 +83,7 @@ interface IButton {
     iconSize?: number;
 }
 ```
-#### Constants
+### Constants
 Use `PascalCase` when naming **objects of constants** and `UPPER_CASE` for **constants**.
 ``` ts
 const Stacks = {
@@ -90,19 +96,19 @@ const Screens = {
     },
 }
 ```
-### CSS-in-JS
-#### Methodology
+## CSS-in-JS
+### Methodology
 We use BEM naming methodology as our base. Use `camelCase` for names consisting of several words.
-``` css
+```
 blockName__elemName_modName_modValue
 ```
 `blockName` is the name of the parent element, so "parentName" is used in below examples instead.
 If there is no parent element for some element (this element is the parent for everything) its style would be named as:
-``` css
+```
 elemName_modName_modValue
 ```
 Thus, some imaginary nested structure could look like:
-``` css
+```
 elemName
     elemName__elemName1
         elemName1__elemName2
@@ -130,7 +136,7 @@ Examples:
 ```
 
 We usually name Views that contain other views as "wrappers". Some nested wrappers examples:
-```css
+```
 parentName__tagsWrapper
 parentName__iconsWrapper
 ```
@@ -143,7 +149,7 @@ the title, the cover of the book and the text of the work. We know for sure that
 content text, so we might use `title, image, text` as elements names. However, this is a rare case, and there must be
 an understandable parent name at the same time, therefore, it is preferable to name elements more complex.
 
-#### Modifiers
+### Modifiers
 `_modName_modValue`
 Use modifier to describe style properties, that should be applied <ins>**only**</ins> when some condition applies.
 
@@ -169,9 +175,10 @@ For example:
     </View>
 </View>
 ```
-## GIT
-### Commits
-#### Message Structure
+
+# GIT
+## Commits
+### Message Structure
 ``` html
 [<Type>] <Subject>
 
@@ -180,9 +187,53 @@ For example:
 <Footer> - optional
 ```
 
-#### Main Rules
-<details>
-    <summary> 1. Separate subject from body with a blank line </summary>
+#### Type
+Enclose it in square brackets `[]`, start with a capital. Should be one of the following:
+
+- `Feat` – a new feature for the user
+
+
+- `Fix` – a fix for the user
+
+
+- `Chore` – updating grunt tasks, etc; no production code change ("grunt task" means nothing that an external user would see)
+
+
+- `Refactor` – refactoring code: optimizing code for reading, using better realisation, etc.
+
+
+- `Deps` - updating or adding dependencies
+
+
+- `Docs` – updates to documentation such as README or other markdown files
+
+
+- `Test` – including new or correcting previous tests
+
+
+- `Perf` – performance improvements
+
+#### Footer
+You can write the name of the task you are working on:
+
+    Task: #861mf4jpl
+
+#### Example
+
+    [Feat] Add default marker component
+
+    Task: #546df5ybk
+
+### Main Rules
+1. Separate subject from body with a blank line
+2. Limit the subject line to 50 characters
+3. Capitalize the subject line
+4. Do not end the subject line with a period
+5. Use the imperative mood in the subject line
+6. Wrap the body at 72 characters
+7. Use the body to explain what and why vs. how
+
+### 1. Separate subject from body with a blank line
 
 From the `git commit` [manpage](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/git-commit.html#_discussion):
 
@@ -247,20 +298,15 @@ Walter Gibbs (1):
 There are a number of other contexts in Git where the distinction between subject line and body kicks in—but none
 of them work properly without the blank line in between.
 
-</details>
-
-<details>
-    <summary> 2. Limit the subject line to 50 characters </summary>
+### 2. Limit the subject line to 50 characters
 
 Keeping subject lines at this length ensures that they are readable, and forces the author to think for a moment
 about the most concise way to explain what’s going on.
 
 > _**Tip:** If you’re having a hard time summarizing, you might be committing too many changes at once.
 > Strive for [atomic commits](https://www.freshconsulting.com/insights/blog/atomic-commits/) ._
-</details>
 
-<details>
-    <summary> 3. Capitalize the subject line </summary>
+### 3. Capitalize the subject line
 
 This is as simple as it sounds. Begin all subject lines with a capital letter.
 
@@ -272,10 +318,7 @@ Instead of:
 
 - ~~accelerate to 88 miles per hour~~
 
-</details>
-
-<details>
-    <summary> 4. Do not end the subject line with a period </summary>
+### 4. Do not end the subject line with a period
 
 Trailing punctuation is unnecessary in subject lines. Besides, space is precious when you’re trying to keep them to 50 chars or less.
 
@@ -287,10 +330,7 @@ Instead of:
 
 - ~~Open the pod bay doors.~~
 
-</details>
-
-<details>
-    <summary> 5. Use the imperative mood in the subject line </summary>
+### 5. Use the imperative mood in the subject line
 
 Imperative mood just means “spoken or written as if giving a command or instruction”. A few examples:
 
@@ -346,10 +386,7 @@ Notice how this doesn't work for the other non-imperative forms:
 > _**Remember**: Use of the imperative is important only in the subject line. You can relax this restriction when you’re
 > writing the body._
 
-</details>
-
-<details>
-    <summary> 6. Wrap the body at 72 characters </summary>
+### 6. Wrap the body at 72 characters
 
 Git never wraps text automatically. When you write the body of a commit message, you must mind its right margin,
 and wrap text manually.
@@ -357,10 +394,7 @@ and wrap text manually.
 The recommendation is to do this at 72 characters, so that Git has plenty of room to indent text while still keeping
 everything under 80 characters overall.
 
-</details>
-
-<details>
-    <summary> 7. Use the body to explain what and why vs. how </summary>
+### 7. Use the body to explain what and why vs. how
 
 This commit from Bitcoin Core is a great example of explaining what changed and why:
 ```
@@ -396,5 +430,3 @@ Just focus on making clear the reasons why you made the change in the first plac
 the change (and what was wrong with that), the way they work now, and why you decided to solve it the way you did.
 
 The future maintainer that thanks you may be yourself!
-
-</details>

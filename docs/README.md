@@ -1,5 +1,5 @@
 # IMPORTANT
-### [Naming convention](docs/NAMING_CONVENTION.md)
+### [Naming convention](NAMING_CONVENTION.md)
 
 ## Contents
 - [Logging](#logging)
