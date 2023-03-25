@@ -79,8 +79,7 @@ module.exports = {
             {
                 selector: 'variable',
                 types: ['boolean'],
-                format: ['PascalCase'],
-                prefix: ['is', 'should', 'has', 'can', 'did', 'will'],
+                format: ['camelCase'],
             },
         ],
         'key-spacing': ['error', { beforeColon: false, afterColon: true, mode: 'strict' }],
