@@ -228,7 +228,7 @@ You can write the name of the task you are working on:
 1. Separate subject from body with a blank line
 2. Limit the subject line to 50 characters
 3. Capitalize the subject line
-4. Do not end the subject line with a period
+4. Do not end the subject line with a dot
 5. Use the imperative mood in the subject line
 6. Wrap the body at 72 characters
 7. Use the body to explain what and why vs. how
@@ -246,13 +246,13 @@ From the `git commit` [manpage](https://mirrors.edge.kernel.org/pub/software/scm
 Firstly, not every commit requires both a subject and a body. Sometimes a single line is fine, especially when
 the change is so simple that no further context is necessary. For example:
 
-    Fix typo in introduction to user guide
+    [Docs] Fix typo in introduction to user guide
 
 Nothing more need be said.
 
 However, when a commit merits a bit of explanation and context, you need to write a body. For example:
 
-    Derezz the master control program
+    [Feat] Derezz the master control program
 
     MCP turned out to be evil and had become intent on world domination.
     This commit throws Tron's disc into MCP (causing its deresolution)
@@ -266,7 +266,7 @@ commit 42e769bdf4894310333942ffc5a15151222a87be
 Author: Kevin Flynn <kevin@flynnsarcade.com>
 Date:   Fri Jan 01 00:00:00 1982 -0200
 
-    Derezz the master control program
+    [Feat] Derezz the master control program
 
     MCP turned out to be evil and had become intent on world domination.
     This commit throws Tron's disc into MCP (causing its deresolution)
@@ -276,24 +276,24 @@ And now `git log --oneline`, which prints out just the subject line:
 
 ```
 $ git log --oneline
-42e769 Derezz the master control program
+42e769 [Feat] Derezz the master control program
 ```
 Or, `git shortlog`, which groups commits by user, again showing just the subject line for concision:
 ```
 $ git shortlog
 Kevin Flynn (1):
-    Derezz the master control program
+    [Feat] Derezz the master control program
 
 Alan Bradley (1):
-    Introduce security program "Tron"
+    [Feat] Introduce security program "Tron"
 
 Ed Dillinger (3):
-    Rename chess program to "MCP"
-    Modify chess program
-    Upgrade chess program
+    [Refactor] Rename chess program to "MCP"
+    [Fix] Modify chess program
+    [Feat] Upgrade chess program
 
 Walter Gibbs (1):
-    Introduce protoype chess program
+    [Feat] Introduce protoype chess program
 ```
 There are a number of other contexts in Git where the distinction between subject line and body kicks in—but none
 of them work properly without the blank line in between.
