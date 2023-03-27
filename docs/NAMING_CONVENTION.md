@@ -18,6 +18,14 @@
         - [Footer](#footer)
         - [Example](#example)
       - [Main Rules](#main-rules)
+    - [Branches](#branches)
+      - [Subject](#subject)
+      - [Group Tokens](#group-tokens)
+      - [Examples](#example-branches)
+    - [Pull Requests](#pull-requests)
+      - [Title](#title)
+        - [Examples](#examples)
+      - [Description](#description)
 
 # Code
 ### Files and Folders
@@ -430,3 +438,64 @@ Just focus on making clear the reasons why you made the change in the first plac
 the change (and what was wrong with that), the way they work now, and why you decided to solve it the way you did.
 
 The future maintainer that thanks you may be yourself!
+
+## Branches
+
+1. Use grouping tokens (words) at the beginning of your branch names.
+2. Use slashes to separate parts of your branch names.
+3. Avoid long descriptive names for long-lived branches.
+4. Avoid capitals in your branch name
+
+### Subject
+Use `kebab-case` for the subject.
+
+### Group tokens
+Use "grouping" tokens in front of your branch names.
+
+    group1/foo
+    group2/foo
+    group1/bar
+    group2/bar
+    group3/bar
+    group1/baz
+
+It can be some generalization of the problem: 'components', 'screens', 'redux', etc.
+
+### Example branches
+
+    components/bottom-sheet
+
+    components/bottom-sheet-fix
+
+    redux/user-slice
+
+## Pull Requests
+### Title
+
+    [<Type - optional>] <Subject>
+
+You can use the types defined for commits.
+
+The rules for the pull request are the same as for the commit, except that the type is optional. Do not write a lot,
+you can add a more complete explanation to the description.
+
+It is possible that some pull request will have the same title and description as some commit from this request.
+For example, the first commit was:
+```
+[Feat] Add navigation
+```
+and then there were some fix commits, so there is no problem
+with naming pull request the same, since the main event is the addition of navigation.
+
+#### Examples
+
+    [Feat] Create weather component
+
+    Create weather component
+
+    Fix scroll view bugs
+
+### Description
+Description is optional. Write explanations if needed.
+You can add the name of the task you are working on there.
+
