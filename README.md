@@ -23,7 +23,6 @@ runs-on: ubuntu-latest
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: Xenous-Inc/ExpoTemplate
           upstream_branch: main # defaults to main
-          pr_labels: template-sync
           pr_commit_msg: [Chore] Merge template changes :up:
 ```
 - Add file `.github/.templatesyncignore` with that content:
@@ -37,4 +36,6 @@ App.tsx
   - Lock branch
 
 ## End
-Delete this file after necessary changes done
+Delete this file after necessary changes done.
+
+> If you want to sync with the template manually: go to Actions and run template-sync workflow
