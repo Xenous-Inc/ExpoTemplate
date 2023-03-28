@@ -4,14 +4,14 @@
 - Add file `.github/workflows/template-sync.yml` :
 ``` yml
 on:
-# cronjob trigger At 00:00 on day-of-month 1. https://crontab.guru/every-month
-schedule:
-- cron:  "0 0 1 * *"
-# manual trigger
-workflow_dispatch:
+    # cronjob trigger At 00:00 on day-of-month 1. https://crontab.guru/every-month
+  schedule:
+  - cron:  "0 0 1 * *"
+  # manual trigger
+  workflow_dispatch:
 jobs:
-repo-sync:
-runs-on: ubuntu-latest
+  repo-sync:
+    runs-on: ubuntu-latest
 
     steps:
       # To use this repository's private action, you must check out the repository
