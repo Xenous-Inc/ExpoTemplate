@@ -28,6 +28,7 @@ runs-on: ubuntu-latest
 - Add file `.github/.templatesyncignore` with that content:
 ```
 App.tsx
+./README.md
 ```
   - Push these changes
 - Add `dev` branch
