@@ -23,6 +23,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: Xenous-Inc/ExpoTemplate
           upstream_branch: main # defaults to main
+          pr_title: "Upstream merge template repository"
           pr_commit_msg: "[Chore] Merge template changes :up:"
 ```
 - Add file `.github/.templatesyncignore` with that content:
