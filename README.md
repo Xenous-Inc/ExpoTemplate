@@ -23,7 +23,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_repo_path: Xenous-Inc/ExpoTemplate
           upstream_branch: main # defaults to main
-          pr_commit_msg: [Chore] Merge template changes :up:
+          pr_commit_msg: "[Chore] Merge template changes :up:"
 ```
 - Add file `.github/.templatesyncignore` with that content:
 ```
@@ -35,6 +35,9 @@ App.tsx
 - Configure security rules for `main` branch:
   - Require a pull request before merging
   - Lock branch
+- Configure Workflow permissions
+  - Read and write permissions
+  - Allow GiHub Actions to create and approve pull requests
 
 ## End
 Delete this file after necessary changes done.
